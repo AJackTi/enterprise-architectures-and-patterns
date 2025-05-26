@@ -1,9 +1,9 @@
 spin_manifest_version = 2
 
 [application]
-authors = ["Fermyon Engineering <engineering@fermyon.com>"]
+authors = ["Thorsten Hans <thorsten.hans@fermyon.com>"]
 description = ""
-name = "http-publisher"
+name = "http-publisher-js"
 version = "0.1.0"
 
 [variables]
@@ -15,13 +15,14 @@ route = "/..."
 component = "http-publisher"
 
 [component.http-publisher]
-source = "target/http-publisher.wasm"
+source = "dist/http-publisher.wasm"
 exclude_files = ["**/node_modules"]
 allowed_outbound_hosts = ["{{redis_connection_string}}"]
+
 [component.http-publisher.variables]
 redis_connection_string = "{{ redis_connection_string }}"
 redis_channel = "{{ redis_channel }}"
 
 [component.http-publisher.build]
-command = "npm run build"
-watch = ["src/**/*.js", "package.json"]
+command = ["npm install", "npm run build"]
+watch = ["src/**/*.js"]

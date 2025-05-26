@@ -1,25 +1,44 @@
-const path = require('path');
+import path from 'path';
+import SpinSdkPlugin from "@spinframework/build-tools/plugins/webpack/index.js";
 
-module.exports = {
-    entry: './src/index.ts',
-    module: {
-        rules: [
-            {
-                test: /\.tsx?$/,
-                use: 'ts-loader',
-                exclude: /node_modules/,
-            },
+const config = async () => {
+    let SpinPlugin = await SpinSdkPlugin.init()
+    return {
+        mode: 'production',
+        stats: 'errors-only',
+        entry: './src/index.ts',
+        experiments: {
+            outputModule: true,
+        },
+        module: {
+            rules: [
+                {
+                    test: /\.tsx?$/,
+                    use: 'ts-loader',
+                    exclude: /node_modules/,
+                },
+            ],
+        },
+        resolve: {
+            extensions: ['.tsx', '.ts', '.js'],
+        },
+        output: {
+            path: path.resolve(process.cwd(), './build'),
+            filename: 'bundle.js',
+            module: true,
+            library: {
+                type: "module",
+            }
+        },
+        plugins: [
+            SpinPlugin
         ],
-    },
-    resolve: {
-        extensions: ['.tsx', '.ts', '.js'],
-    },
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'spin.js',
-        library: 'spin'
-    },
-    optimization: {
-        minimize: false
-    },
-};
+        optimization: {
+            minimize: false
+        },
+        performance: {
+            hints: false,
+        }
+    };
+}
+export default config

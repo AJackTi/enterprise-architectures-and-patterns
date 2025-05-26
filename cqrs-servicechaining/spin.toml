@@ -15,7 +15,7 @@ source = "gateway/target/wasm32-wasi/release/gateway.wasm"
 allowed_outbound_hosts = ["https://*.spin.internal"]
 
 [component.gateway.build]
-command = "cargo build --target wasm32-wasi --release"
+command = "cargo build --target wasm32-wasip1 --release"
 workdir = "gateway"
 watch = ["src/**/*.rs", "Cargo.toml"]
 
@@ -29,7 +29,7 @@ allowed_outbound_hosts = []
 sqlite_databases = ["default"]
 
 [component.queries.build]
-command = "tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go"
+command = "tinygo build -target=wasip1 -gc=leaking -buildmode=c-shared -no-debug -o main.wasm ."
 workdir = "queries"
 watch = ["**/*.go", "go.mod"]
 
@@ -43,6 +43,6 @@ allowed_outbound_hosts = []
 sqlite_databases = ["default"]
 
 [component.commands.build]
-command = "cargo build --target wasm32-wasi --release"
+command = "cargo build --target wasm32-wasip1 --release"
 workdir = "commands"
 watch = ["src/**/*.rs", "Cargo.toml"]

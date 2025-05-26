@@ -22,6 +22,6 @@ key_value_stores = ["custom"]
 store = "{{ store }}"
 
 [component.api.build]
-command = "cargo build --target wasm32-wasi --release"
+command = "cargo build --target wasm32-wasip1 --release"
 workdir = "api"
 watch = ["src/**/*.rs", "Cargo.toml"]

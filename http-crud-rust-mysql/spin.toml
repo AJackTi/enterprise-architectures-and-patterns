@@ -18,5 +18,5 @@ allowed_outbound_hosts = ["mysql://localhost"]
 db_connection_string = "mysql://spin:spin@localhost:3306/spin"
 
 [component.http-crud-rust-mysql.build]
-command = "cargo build --target wasm32-wasi --release"
+command = "cargo build --target wasm32-wasip1 --release"
 watch = ["src/**/*.rs", "Cargo.toml"]

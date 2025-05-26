@@ -26,7 +26,7 @@ Send data to `POST /items` and `PUT /items/:id` using the following structure:
 - Local (`spin up`)
 - SpinKube
 - Fermyon Platform for Kubernetes
-- 
+-
 ## Prerequisites
 
 To run the sample on your local machine, you must have the following software installed:

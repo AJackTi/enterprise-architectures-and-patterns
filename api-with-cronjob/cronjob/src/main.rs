@@ -1,5 +1,3 @@
-use std::{thread, time::Duration};
-
 use anyhow::Result;
 use spin_sdk::{key_value::Store, variables};
 

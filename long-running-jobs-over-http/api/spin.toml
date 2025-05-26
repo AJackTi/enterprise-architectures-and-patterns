@@ -31,5 +31,5 @@ mqtt_keep_alive = "{{ mqtt_keep_alive }}"
 topic_name = "jobs/new"
 
 [component.api.build]
-command = "cargo build --target wasm32-wasi --release"
+command = "cargo build --target wasm32-wasip1 --release"
 watch = ["src/**/*.rs", "Cargo.toml"]

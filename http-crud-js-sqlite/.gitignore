@@ -2,5 +2,4 @@ node_modules
 dist
 target
 .spin/
-dist.js
-combined-wit/
+build/

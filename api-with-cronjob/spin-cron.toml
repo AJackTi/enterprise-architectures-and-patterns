@@ -20,6 +20,6 @@ key_value_stores = ["custom"]
 store = "{{ store }}"
 
 [component.cronjob.build]
-command = "cargo component build --target wasm32-wasi --release"
+command = "cargo component build --target wasm32-wasip1 --release"
 workdir = "cronjob"
 watch = ["src/**/*.rs", "Cargo.toml"]

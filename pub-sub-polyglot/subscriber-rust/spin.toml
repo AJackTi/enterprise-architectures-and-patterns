@@ -21,4 +21,4 @@ component = "subscriber-rust"
 source = "target/wasm32-wasi/release/subscriber_rust.wasm"
 allowed_outbound_hosts = []
 [component.subscriber-rust.build]
-command = "cargo build --target wasm32-wasi --release"
+command = "cargo build --target wasm32-wasip1 --release"

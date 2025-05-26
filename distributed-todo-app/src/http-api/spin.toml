@@ -22,5 +22,5 @@ allowed_outbound_hosts = ["postgres://{{ db_host }}:5432"]
 connection_string = "{{ db_connection_string }}"
 
 [component.http-api.build]
-command = "cargo build --target wasm32-wasi --release"
+command = "cargo build --target wasm32-wasip1 --release"
 watch = ["src/**/*.rs", "Cargo.toml"]
