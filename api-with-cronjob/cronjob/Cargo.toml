@@ -11,5 +11,5 @@ package = "component:cronjob"
 
 [dependencies]
 anyhow = "1.0.86"
-spin-sdk = "3.0.1"
+spin-sdk = "3.1.1"
 wit-bindgen-rt = { version = "0.26.0", features = ["bitflags"] }

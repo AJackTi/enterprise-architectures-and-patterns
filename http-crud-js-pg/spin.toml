@@ -9,20 +9,18 @@ version = "0.1.0"
 [variables]
 db_connection_string = { required = true }
 
-
 [[trigger.http]]
 route = "/..."
 component = "crud-api"
 
 [component.crud-api]
-source = "target/http-crud-js.wasm"
+source = "dist/crud-api.wasm"
 exclude_files = ["**/node_modules"]
 allowed_outbound_hosts = ["postgres://localhost"]
-# foo
 
 [component.crud-api.variables]
 db_connection_string = "{{ db_connection_string }}"
 
 [component.crud-api.build]
-command = "npm run build"
-watch = ["src/**/*.js", "package.json"]
+command = ["npm install", "npm run build"]
+watch = ["src/**/*.js"]

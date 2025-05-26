@@ -1,24 +1,38 @@
-import { Router } from "@fermyon/spin-sdk";
-import { deleteItemById, deleteManyItems, getAllItems, getItemById, createItem, updateItemById, notFound } from "./handlers";
+import { AutoRouter } from "itty-router";
+import {
+  deleteItemById,
+  deleteManyItems,
+  getAllItems,
+  getItemById,
+  createItem,
+  updateItemById,
+  notFound,
+} from "./handlers";
+let router = AutoRouter();
 
-const router = Router();
+router.get("/items", () => getAllItems());
+router.get("/items/:id", ({ params }) => getItemById(params.id));
+router.post("/items", async (req, { baseUrl }) =>
+  createItem(baseUrl, await req.arrayBuffer()),
+);
+router.put("/items/:id", async (req, { baseUrl }) =>
+  updateItemById(baseUrl, req.params.id, await req.arrayBuffer()),
+);
+router.delete("/items", async (req) =>
+  deleteManyItems(await req.arrayBuffer()),
+);
+router.delete("/items/:id", ({ params }) => deleteItemById(params.id));
+router.all("*", () => notFound("Endpoint not found"));
 
-router.get("/items", (_metadata, _req, res) => getAllItems(res));
-router.get("/items/:id", ({ params }, _req, res) => getItemById(params.id, res));
-router.post("/items", async ({ }, req, res, { baseUrl }) => createItem(baseUrl, await req.arrayBuffer(), res));
-router.put("/items/:id", async ({ params }, req, res, { baseUrl }) => updateItemById(baseUrl, params.id, await req.arrayBuffer(), res));
-router.delete("/items", async ({ }, req, res) => deleteManyItems(await req.arrayBuffer(), res));
-router.delete("/items/:id", ({ params }, _req, res) => deleteItemById(params.id, res));
-router.all("*", (_metadata, _req, res) => notFound("Endpoint not found", res));
-
-export async function handler(req, res) {
-    const fullUrl = req.headers.get("spin-full-url");
-    const path = req.headers.get("spin-path-info");
-    const baseUrl = fullUrl.substr(0, fullUrl.indexOf(path))
-    console.info(`Processing incoming ${req.method} request for ${path}`);
-    return await router.handleRequest(req, res, {
-        baseUrl,
-        fullUrl,
-        path
-    });
-}
+addEventListener("fetch", (event) => {
+  const fullUrl = event.request.headers.get("spin-full-url");
+  const path = event.request.headers.get("spin-path-info");
+  const baseUrl = fullUrl.substr(0, fullUrl.indexOf(path));
+  event.respondWith(
+    router.fetch(event.request, {
+      baseUrl,
+      fullUrl,
+      path,
+    }),
+  );
+});

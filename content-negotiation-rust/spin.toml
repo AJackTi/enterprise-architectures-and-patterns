@@ -14,5 +14,5 @@ component = "content-negotiation-rust"
 source = "target/wasm32-wasi/release/content_negotiation_rust.wasm"
 allowed_outbound_hosts = []
 [component.content-negotiation-rust.build]
-command = "cargo build --target wasm32-wasi --release"
+command = "cargo build --target wasm32-wasip1 --release"
 watch = ["src/**/*.rs", "Cargo.toml"]

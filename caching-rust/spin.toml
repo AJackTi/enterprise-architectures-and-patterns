@@ -17,5 +17,5 @@ key_value_stores = ["cache"]
 sqlite_databases = ["default"]
 
 [component.caching-rust.build]
-command = "cargo build --target wasm32-wasi --release"
+command = "cargo build --target wasm32-wasip1 --release"
 watch = ["src/**/*.rs", "Cargo.toml"]

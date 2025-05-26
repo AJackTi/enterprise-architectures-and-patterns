@@ -1,26 +1,24 @@
-import { Redis, Config } from "@fermyon/spin-sdk"
+import { Hono } from "hono";
+import { logger } from "hono/logger";
+import * as Redis from "@spinframework/spin-redis";
+import * as Variables from "@spinframework/spin-variables";
 
-const encoder = new TextEncoder()
-const decoder = new TextDecoder()
+let app = new Hono();
+const enc = new TextEncoder();
+app.use(logger());
 
-const redisAddress = "redis://localhost:6379/"
+app.post("/", (c) => {
+  const redisConnectionString = Variables.get("redis_connection_string");
+  const redisChannel = Variables.get("redis_channel");
 
+  if (!redisConnectionString || !redisChannel) {
+    console.log("Redis Connection is not configured");
+    c.status(500);
+    return c.text("Internal Server Error");
+  }
+  const r = Redis.open(redisConnectionString);
+  r.publish(redisChannel, enc.encode("Hello from Spin").buffer);
+  return c.text("Your message has been submitted to Redis");
+});
 
-export async function handleRequest(request) {
-    const connectionString = Config.get("redis_connection_string");
-    const channel = Config.get("redis_channel")
-    if (!connectionString || !channel) {
-        return {
-            status: 500,
-            headers: { "content-type": "text/plain" },
-            body: "Redis Connection not configured."
-        }
-    }
-    Redis.publish(connectionString, channel, encoder.encode("This message has been generated using the Spin HTTP app written in JS").buffer)
-
-    return {
-        status: 201,
-        headers: { "content-type": "text/plain" },
-        body: "Your message has been submitted to Redis"
-    }
-}
+app.fire();

@@ -17,4 +17,3 @@ build:
 .PHONY: run
 run:
 	SPIN_VARIABLE_DB_CONNECTION_STRING=postgres://timmy:secret@localhost/sample spin up
-

@@ -21,5 +21,5 @@ allowed_outbound_hosts = []
 token = "{{ secret }}"
 
 [component.vault-provider.build]
-command = "cargo build --target wasm32-wasi --release"
+command = "cargo build --target wasm32-wasip1 --release"
 watch = ["src/**/*.rs", "Cargo.toml"]

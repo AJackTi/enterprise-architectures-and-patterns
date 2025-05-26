@@ -16,7 +16,7 @@ allowed_outbound_hosts = []
 
 [component.api.build]
 workdir = "api"
-command = "cargo build --target wasm32-wasi --release"
+command = "cargo build --target wasm32-wasip1 --release"
 watch = ["src/**/*.rs", "Cargo.toml"]
 
 [[trigger.http]]

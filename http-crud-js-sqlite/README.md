@@ -28,7 +28,7 @@ To run the sample on your local machine, you must have the following software in
  - Latest [Spin](https://developer.fermyon.com/spin) CLI
  - [Node.js](https://nodejs.org)
 
-## Running this Sample 
+## Running this Sample
 
 ### Local (`spin up`)
 
