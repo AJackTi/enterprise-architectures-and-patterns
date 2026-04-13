@@ -14,7 +14,7 @@ route = "/..."
 component = "api"
 
 [component.api]
-source = "api/target/wasm32-wasi/release/api.wasm"
+source = "api/target/wasm32-wasip1/release/api.wasm"
 allowed_outbound_hosts = []
 key_value_stores = ["custom"]
 

@@ -21,16 +21,16 @@ The Command App leverages Spin's key-value store API to load all keys available 
 ## Supported Platforms
 
 - Local (`spin up`)
-- SpinKube
-- Fermyon Platform for Kubernetes
+- [SpinKube](https://spinkube.dev)
 
 ## Prerequisites
 
 To use this sample you must have
 
 - [Rust](https://www.rust-lang.org/) installed on your machine
-  - The `wasm32-wasi` target for Rust installed (`rustup target add wasm32-wasi`)
-- [Spin](https://developer.fermyon.com/spin/v2/index) CLI installed on your machine
+  - The `wasm32-wasip1` target for Rust installed (`rustup target add wasm32-wasip1`)
+  - The `wasm32-wasip2` target for Rust installed (`rustup target add wasm32-wasip2`)
+- [Spin](https://spinframework.dev) CLI installed on your machine
 - [Command Trigger Plugin](https://github.com/fermyon/spin-trigger-command) must be installed
 
 

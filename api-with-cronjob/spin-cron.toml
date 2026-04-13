@@ -13,13 +13,13 @@ store = { default = "custom" }
 component = "cronjob"
 
 [component.cronjob]
-source = "cronjob/target/wasm32-wasi/release/cronjob.wasm"
+source = "cronjob/target/wasm32-wasip2/release/cronjob.wasm"
 key_value_stores = ["custom"]
 
 [component.cronjob.variables]
 store = "{{ store }}"
 
 [component.cronjob.build]
-command = "cargo component build --target wasm32-wasip1 --release"
+command = "cargo build --target wasm32-wasip2 --release"
 workdir = "cronjob"
 watch = ["src/**/*.rs", "Cargo.toml"]
