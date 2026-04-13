@@ -37,7 +37,7 @@ Each and every samples lists supported platforms. See the following list of all 
 
 ### Patterns for building HTTP APIs
 - [Content Negotiation](./content-negotiation-rust/)
-- [Cross-Origin Resource Sharing (CORS)](./cors-rust/)
+- [Cross-Origin Resource Sharing (CORS)](./cors-rust/) [Local | SpinKube | Akamai Functions]
 - [Long Running Jobs over HTTP](./long-running-jobs-over-http/)
 - [Transparent Caching](./caching-rust/)
 - [Image Transformation](./image-transformation/)

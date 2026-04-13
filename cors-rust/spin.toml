@@ -13,7 +13,7 @@ component = "cors-rust"
 [component.cors-rust]
 source = "target/wasm32-wasip1/release/cors_rust.wasm"
 allowed_outbound_hosts = []
-sqlite_databases = ["default"]
+key_value_stores = ["default"]
 
 [variables]
 allowed_origins = { default = "http://localhost:4200" }

@@ -11,17 +11,16 @@ To enable cross-origin requests, you need to configure their servers to include 
 ## Supported Platforms
 
 - Local (`spin up`)
-- Fermyon Cloud
-- SpinKube
-- Fermyon Platform for Kubernetes
+- [SpinKube](https://spinkube.dev)
+- Akamai Functions
 
 ## Prerequisites
 
 To use this sample you must have
 
 - [Rust](https://www.rust-lang.org/) installed on your machine
-  - The `wasm32-wasi` target for Rust installed (`rustup target add wasm32-wasi`)
-- [Spin](https://developer.fermyon.com/spin/v2/index) CLI installed on your machine
+  - The `wasm32-wasip1` target for Rust installed (`rustup target add wasm32-wasip1`)
+- [Spin](https://spinframework.dev) CLI installed on your machine
 
 ## CORS Configuration
 
@@ -66,31 +65,14 @@ See the following command, starting the same app but specifying different allowe
 SPIN_VARIABLE_ALLOWED_ORIGINS=http://localhost:4200,http://localhost:5000 spin up --build --sqlite @migrations.sql
 ```
 
-### Fermyon Cloud
+### Akamai Functions
 
-You can deploy this sample to Fermyon Cloud following the steps below:
+You can deploy this sample to Akamai Functions following the steps below:
 
 ```bash
 # Authenticate
-spin cloud login
+spin aka login
 
-# Deploy the sample to Fermyon Cloud
-# This will ask if a new database should be created or an existing one should be used
-# Answer the question with "create a new database"
-spin deploy
-Uploading cors-rust version 0.1.0 to Fermyon Cloud...
-Deploying...
-App "cors-rust" accesses a database labeled "default"
-    Would you like to link an existing database or create a new database?: Create a new database and link the app to it
-What would you like to name your database?
-    Note: This name is used when managing your database at the account level. The app "cors-rust" will refer to this database by the label "default".
-    Other apps can use different labels to refer to the same database.: eager-zebra
-Creating database named 'eager-zebra'
-Waiting for application to become ready........ ready
-
-View application:   https://cors-rust-cpr8btmc.fermyon.app/
-Manage application: https://cloud.fermyon.com/app/cors-rust
-
-# Ensure tables are created in the new database (here eager-zebra)
-spin cloud sqlite execute --database eager-zebra @migrations.sql
+# Deploy the sample to Akamai Funcitons
+spin aka deploy
 ```
