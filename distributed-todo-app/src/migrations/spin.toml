@@ -14,12 +14,12 @@ db_connection_string = { default = "postgres://timmy:secret@localhost/todo" }
 component = "migrations"
 
 [component.migrations]
-source = "target/wasm32-wasi/release/migrations.wasm"
+source = "target/wasm32-wasip2/release/migrations.wasm"
 allowed_outbound_hosts = ["postgres://{{ db_host }}"]
 
 [component.migrations.variables]
 connection_string = "{{ db_connection_string }}"
 
 [component.migrations.build]
-command = "cargo component build --target wasm32-wasip1 --release"
+command = "cargo  build --target wasm32-wasip2 --release"
 watch = ["src/**/*.rs", "Cargo.toml"]

@@ -16,13 +16,21 @@ The HTTP API exposes the following endpoints:
 - `POST /tasks/toggle/:id`: Toggle the state of a particular task (open|done) using its identifier
 - `GET /stats`: Retrieve all stats
 
+## Supported Platforms
+
+- Local (`spin up`) requires a running redis cache
+- [SpinKube](https://spinkube.dev)
+
 ## Running locally
 
 ### Prerequisites
 
  - `docker` CLI must be installed (local DB is hosted in a container)
  - `spin` CLI must be installed
- - The Spin CLI `trigger-command` plugin (canary) must be installed
+ - Rust must be installed
+  - the `wasm32-wasip1` target must be installed (`rustup target add wasm32-wasip1`)
+  - the `wasm32-wasip2` target must be installed (`rustup target add wasm32-wasip2`)
+ - The Spin CLI `trigger-command` plugin must be installed
  - The ports `8080` and `3000` may not be allocated on your system
    - You can use different ports by updating `./run-local.sh` and `./local.toml`
 

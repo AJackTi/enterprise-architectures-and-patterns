@@ -15,7 +15,7 @@ route = "/..."
 component = "http-api"
 
 [component.http-api]
-source = "target/wasm32-wasi/release/http_api.wasm"
+source = "target/wasm32-wasip1/release/http_api.wasm"
 allowed_outbound_hosts = ["postgres://{{ db_host }}:5432"]
 
 [component.http-api.variables]

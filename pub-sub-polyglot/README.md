@@ -11,8 +11,7 @@ Subscribers can react to messages they are interested in by executing predefined
 ## Supported Platforms
 
 - Local (`spin up`) requires a running redis cache
-- SpinKube
-- Fermyon Platform for Kubernetes
+- [SpinKube](https://spinkube.dev)
 
 ## Prerequisites
 
@@ -21,7 +20,7 @@ Subscribers can react to messages they are interested in by executing predefined
 - [TinyGo](https://tinygo.org/) installed on your machine
 - [Node.js](https://nodejs.org/) installed on your machine
 - [Docker](https://docker.com) installed on your machine (for running Redis in a container)
-- [Spin](https://developer.fermyon.com/spin/v2/index) CLI installed on your machine
+- [Spin](https://spinframework.dev) CLI installed on your machine
 
 ## Running the Sample
 

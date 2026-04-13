@@ -11,7 +11,7 @@ route = "/..."
 component = "caching-rust"
 
 [component.caching-rust]
-source = "target/wasm32-wasi/release/caching_rust.wasm"
+source = "target/wasm32-wasip1/release/caching_rust.wasm"
 allowed_outbound_hosts = []
 key_value_stores = ["cache"]
 sqlite_databases = ["default"]

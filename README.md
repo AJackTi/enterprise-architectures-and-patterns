@@ -2,22 +2,30 @@
 
 [![Build Status](https://github.com/fermyon/enterprise-architectures-and-patterns/actions/workflows/ci.yaml/badge.svg)](https://github.com/fermyon/enterprise-architectures-and-patterns/actions/workflows/ci.yaml)
 
-This repository contains a collection of enterprise architectures and patterns, to illustrate the potential of [Spin](https://github.com/fermyon/spin) and WebAssembly (Wasm) for building real-world applications.
+This repository contains a collection of enterprise architectures and patterns, to illustrate the potential of [Spin](https://spinframework.dev) and WebAssembly (Wasm) for building real-world applications.
 
 Each folder contains a self-contained example, including a high-level explanation of the pattern/architecture and instructions on how to build and run the particular Spin App(s).
 
 ## Getting Started with Spin
 
-If you haven't used Spin before, we highly recommend exploring the [Fermyon Developer Home](https://developer.fermyon.com) to get started. There you'll find everything from installing Spin on your local machine, over language-specific guides, to advanced techniques when building serverless Wasm applications.
+If you haven't used Spin before, we highly recommend exploring the [official Spin documentation](https://spinframework.dev) to get started. There you'll find everything you need. From installing Spin on your local machine, over language-specific guides, to advanced techniques for building serverless Wasm applications.
+
+## Supported Platforms
+
+Each and every samples lists supported platforms. See the following list of all platforms mentioned:
+
+- Local Machine (`spin up`)
+- [SpinKube](https://spinkube.dev)
+- Akamai Functions
 
 ## Architectures & Patterns in this Repository
 
 ### CronJobs in Kubernetes
-- [HTTP APIs and CronJob](./api-with-cronjob)
-- [Distributed ToDo-App](./distributed-todo-app/)
+- [HTTP APIs and CronJob](./api-with-cronjob) [Local | SpinKube]
+- [Distributed ToDo-App](./distributed-todo-app/) [Local | SpinKube]
 
 ### CRUD APIs
-- [Go CRUD API with persistence in SQLite](./http-crud-go-sqlite/)
+- [Go CRUD API with persistence in SQLite](./http-crud-go-sqlite/) [Local]
 - [JavaScript CRUD API with persistence in PostgreSQL](./http-crud-js-pg/)
 - [JavaScript CRUD API with persistence in SQLite](./http-crud-js-sqlite/)
 - [Rust CRUD API with persistence in MySQL](./http-crud-rust-mysql/)
@@ -37,9 +45,6 @@ If you haven't used Spin before, we highly recommend exploring the [Fermyon Deve
 ### Application Variables (aka Configuration Data)
 - [Using the Azure Key Vault Application Variable Provider](./application-variable-providers/azure-key-vault-provider/)
 - [Using the Vault Application Variable Provider](./application-variable-providers/vault-provider/)
-
-### Webhooks
-- [Signed Webhooks using WebAssembly Component Model](./signed-webhooks/)
 
 ### Distributed Application Patterns
 - [Polyglot Aggregate Pattern implementation](./aggregate-pattern/)

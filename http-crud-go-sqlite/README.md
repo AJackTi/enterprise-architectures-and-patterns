@@ -21,11 +21,15 @@ Send data to `POST /items` and `PUT /items/:id` using the following structure:
 }
 ```
 
+## Supported Platforms
+
+- Local (`spin up`) requires a running redis cache
+
 ## Prerequisites
 
 To run the sample on your local machine, you must have the following software installed:
 
- - Latest [Spin](https://developer.fermyon.com/spin) CLI
+ - Latest [Spin](https://spinframework.dev) CLI
  - [TinyGo](https://tinygo.org/)
 
 ## Running this Sample 
@@ -46,34 +50,4 @@ Storing default SQLite data to ".spin/sqlite_db.db"
 Serving http://127.0.0.1:3000
 Available Routes:
   http-crud-go-sqlite: http://127.0.0.1:3000 (wildcard)
-```
-
-### Fermyon Cloud
-
-You can deploy this sample to Fermyon Cloud following the steps below:
-
-```bash
-# Authenticate
-spin cloud login
-
-# Deploy the sample to Fermyon Cloud
-# This will ask if a new database should be created or an existing one should be used
-# Answer the question with "create a new database"
-spin deploy
-Uploading http-crud-go-sqlite version 0.1.0 to Fermyon Cloud...
-Deploying...
-App "http-crud-go-sqlite" accesses a database labeled "default"
-    Would you like to link an existing database or create a new database?: Create a new database and link the app to it
-What would you like to name your database?
-What would you like to name your database?
-    Note: This name is used when managing your database at the account level. The app "http-crud-go-sqlite" will refer to this database by the label "default".
-    Other apps can use different labels to refer to the same database.: sincere-mulberry
-Creating database named 'sincere-mulberry'
-Waiting for application to become ready.......... ready
-
-View application:   https://http-crud-go-sqlite-jcmbpezb.fermyon.app/
-Manage application: https://cloud.fermyon.com/app/http-crud-go-sqlite
-
-# Ensure tables are created in the new database (here sincere-mulberry)
-spin cloud sqlite execute --database sincere-mulberry @migrations.sql
 ```

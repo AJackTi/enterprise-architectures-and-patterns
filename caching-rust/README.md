@@ -10,14 +10,14 @@ A transparent cache is a caching mechanism that operates without the explicit in
 
 - Local (`spin up`)
 - Fermyon Cloud
-- SpinKube
+- [SpinKube](https://spinkube.dev)
 - Fermyon Platform for Kubernetes
 
 ## Prerequisites
 
 - [Rust](https://www.rust-lang.org/) installed on your machine
-  - The `wasm32-wasi` target for Rust installed (`rustup target add wasm32-wasi`)
-- [Spin](https://developer.fermyon.com/spin/v2/index) CLI installed on your machine
+  - The `wasm32-wasip1` target for Rust installed (`rustup target add wasm32-wasip1`)
+- [Spin](https://spinframework.dev) CLI installed on your machine
   
 ## Sample Description
 

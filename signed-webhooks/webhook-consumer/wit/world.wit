@@ -1,5 +1,0 @@
-package fermyon:webhook-consumer@0.1.0;
-
-world verification {
-    import fermyon:hmac/verify@0.1.0;
-}

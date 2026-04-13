@@ -37,7 +37,7 @@ The *Incidents Service* exposes the following endpoints:
 ## Supported Platforms
 
 - Local (`spin up`) requires a running redis cache
-- SpinKube
+- [SpinKube](https://spinkube.dev)
 - Fermyon Platform for Kubernetes
 
 ## Prerequisites
